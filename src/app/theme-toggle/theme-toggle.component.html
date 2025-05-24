@@ -1,4 +1,4 @@
-<button (click)="toggleTheme()" class="theme-toggle-button">
+<button (click)="toggleTheme()" class="theme-toggle-button" aria-label="dark_mode">
   <span *ngIf="themeService.isDarkMode(); else lightIcon"><mat-icon>dark_mode</mat-icon></span>
   <ng-template #lightIcon><mat-icon>light_mode</mat-icon></ng-template>
   </button>
