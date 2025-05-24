@@ -1,0 +1,7 @@
+<img *ngIf="!themeService.isDarkMode()"
+         [src]="logoModoClaroUrl"
+         [alt]="altText + ' modo claro'" />
+
+    <img *ngIf="themeService.isDarkMode()"
+         [src]="logoModoOscuroUrl"
+         [alt]="altText + ' modo oscuro'" />

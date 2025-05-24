@@ -11,13 +11,22 @@
 }
 .title-container{
     padding-top: 30px;
+    background-color: var(--background-color);
+
 }
 .title-container a{
     font-size: 14px;
+    
 }
+
+.title-container p{
+    color: var(--card-contentFont);
+}
+
 .main-container, .title-container  {
     padding-left: 5vw;
     padding-right: 5vw;
+    background-color: var(--background-color);
 }
 
 .descripcion-container{
@@ -26,6 +35,7 @@
 .descripcion-container p{
     padding-top:10px;
     padding-bottom: 20px;
+    color: var(--card-contentFont)
 }
 
 
@@ -36,4 +46,18 @@
 
 .filler-container{
     height:400px;
+    background-color: var(--background-color);
+}
+
+button{
+   background-color:  var(--card-background) !important;
+   color: var(--card-contentFont) !important;
+}
+
+.enlaces-container h4{
+ color: var(--text-color);
+}
+
+.enlaces-container p, .enlaces-container a, .enlaces-container mat-icon{
+color:var(--card-contentFont);
 }

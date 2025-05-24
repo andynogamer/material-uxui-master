@@ -22,8 +22,8 @@
         (menuClosed)="onMenuClosed1()"
         class="main-buttons">OFERTA EDUCATIVA<mat-icon [@rotate]="currentState[1]">arrow_forward_ios</mat-icon></button>
         <mat-menu #beyondMenu="matMenu" yPosition="below">
-        <button mat-menu-item (click)="drawer.close()">Facultades y escuelas</button> <button mat-menu-item (click)="drawer.close()">Licenciaturas</button> </mat-menu>
-        <button mat-button (click)="drawer.close()" class="main-buttons">NUMERALIA</button> </div>
+        <button mat-menu-item (click)="drawer.close()" [routerLink]="['/facultades']">Facultades y escuelas</button> <button mat-menu-item (click)="drawer.close()"[routerLink]="['/licenciaturas']">Licenciaturas</button> </mat-menu>
+        <button mat-button (click)="drawer.close()" class="main-buttons" >NUMERALIA</button> </div>
   </mat-drawer>
 
   <div class="example-sidenav-content">

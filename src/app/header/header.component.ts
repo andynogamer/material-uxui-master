@@ -28,19 +28,17 @@ export class HeaderComponent {
   
 
    ngOnInit() {
-    this.checkScreenSize(); // Revisar al cargar
+    this.checkScreenSize(); 
   }
 
   @HostListener('window:resize', [])
   onResize() {
-    this.checkScreenSize(); // Revisar cada vez que cambia el tamaño
+    this.checkScreenSize(); 
   }
 
   checkScreenSize() {
     this.isMobile = window.innerWidth < 800;
-    // if (!this.isMobile) { // This logic might be better in the sidebar or app component
-    //   this.sidebarOpen = false;
-    // }
+    
   }
 
 triggerSidebarToggle() {

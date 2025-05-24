@@ -54,6 +54,7 @@ import { LetrasComponent } from './licenciaturas-individuales/letras/letras.comp
 import { TeatroComponent } from './licenciaturas-individuales/teatro/teatro.component';
 import { HomeNewsSectionComponent } from './home-news-section/home-news-section.component';
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { LogoComponent } from './logo/logo.component';
 
 
 
@@ -101,6 +102,7 @@ import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
     TeatroComponent,
     HomeNewsSectionComponent,
     ThemeToggleComponent,
+    LogoComponent,
 
  
   ],

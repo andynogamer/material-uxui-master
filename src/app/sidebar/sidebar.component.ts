@@ -1,7 +1,7 @@
 import {Component, ViewChild, OnDestroy, OnInit} from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Subscription } from 'rxjs'; // Import Subscription
+import { Subscription } from 'rxjs';
 import { CommunicationService } from '../shared/communication.service';
 
 
@@ -18,20 +18,20 @@ import { CommunicationService } from '../shared/communication.service';
         ])
   ]
 })
-export class SidebarComponent implements OnInit, OnDestroy { // Implement OnInit and OnDestroy
-  @ViewChild('drawer') drawer!: MatDrawer; // Get a reference to the MatDrawer
-  private sidebarToggleSubscription!: Subscription; // To store the subscription
+export class SidebarComponent implements OnInit, OnDestroy { 
+  @ViewChild('drawer') drawer!: MatDrawer; 
+  private sidebarToggleSubscription!: Subscription; 
 
   isMobile : boolean = false;
-  // sidebarOpen : boolean = false; // This state will now be managed by the MatDrawer itself
+  
 
   isMenuOpen: boolean = false;
   currentState  = ['default', 'default'];
 
-  constructor(private communicationService: CommunicationService) {} // Inject the service
+  constructor(private communicationService: CommunicationService) {} 
 
   ngOnInit() {
-    this.onResize(); // Verificar al cargar la página
+    this.onResize(); 
     this.sidebarToggleSubscription = this.communicationService.sidebarToggle$.subscribe(() => {
       if (this.drawer) {
         this.drawer.toggle();
@@ -40,7 +40,6 @@ export class SidebarComponent implements OnInit, OnDestroy { // Implement OnInit
   }
 
   ngOnDestroy() {
-    // Unsubscribe to prevent memory leaks
     if (this.sidebarToggleSubscription) {
       this.sidebarToggleSubscription.unsubscribe();
     }
@@ -50,38 +49,35 @@ export class SidebarComponent implements OnInit, OnDestroy { // Implement OnInit
     this.isMobile = window.innerWidth < 768; //
   }
 
-  // toggleSidebar() { // This method is no longer directly called by a button in this component's template for opening
-  //   this.sidebarOpen = !this.sidebarOpen;
-  // }
+  
 
   closeSidebar() {
     if (this.drawer) {
       this.drawer.close();
     }
-    // this.sidebarOpen = false;
   }
 
  onMenuOpened(): void {
     this.isMenuOpen = true;
-    this.currentState[0]= 'rotated' //
-    console.log('Evento: Menú abierto, isMenuOpen (local):', this.isMenuOpen); //
+    this.currentState[0]= 'rotated' 
+    console.log('Evento: Menú abierto, isMenuOpen (local):', this.isMenuOpen); 
   }
 
   onMenuClosed(): void {
     this.isMenuOpen = false;
-    this.currentState[0]= 'default' //
-    console.log('Evento: Menú cerrado, isMenuOpen (local):', this.isMenuOpen); //
+    this.currentState[0]= 'default' 
+    console.log('Evento: Menú cerrado, isMenuOpen (local):', this.isMenuOpen); 
   }
 
   onMenuOpened1(): void {
     this.isMenuOpen = true;
-    this.currentState[1]= 'rotated' //
-    console.log('Evento: Menú abierto, isMenuOpen (local):', this.isMenuOpen); //
+    this.currentState[1]= 'rotated' 
+    console.log('Evento: Menú abierto, isMenuOpen (local):', this.isMenuOpen); 
   }
 
   onMenuClosed1(): void {
     this.isMenuOpen = false;
-    this.currentState[1]= 'default' //
-    console.log('Evento: Menú cerrado, isMenuOpen (local):', this.isMenuOpen); //
+    this.currentState[1]= 'default' 
+    console.log('Evento: Menú cerrado, isMenuOpen (local):', this.isMenuOpen); 
   }
 }

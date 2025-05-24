@@ -1,0 +1,5 @@
+img {
+      display: block; /* Evita espacio extra debajo si es inline-block por defecto */
+      height: 50px; /* Mantiene la altura consistente si es necesario */
+      width: 150px; /* Mantiene el ancho consistente si es necesario */
+    }
