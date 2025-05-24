@@ -1,0 +1,136 @@
+// src/_unam-theme.scss
+
+// 1. Importa las funciones de theming de Angular Material.
+@use '@angular/material' as mat;
+
+// 2. Define tus colores base.
+$unam-white: #FFFFFF;
+$unam-blue: #003366; // O el dorado que prefieras, ej: #C69A39
+$unam-gold: #B8860B;
+$unam-typography: mat.define-typography-config();
+$my-custom-level: mat.define-typography-level(
+  $font-family: Raleway,
+  $font-weight: 400,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+// 3. Define las paletas de Angular Material.
+// La estructura correcta es un mapa directo de tonalidades y la clave 'contrast'.
+
+$unam-primary-palette: mat.define-palette(( // <--- Solo un par de paréntesis aquí
+  50: lighten($unam-white, 45%),
+  100: lighten($unam-white, 40%),
+  200: lighten($unam-white, 30%),
+  300: lighten($unam-white, 20%),
+  400: lighten($unam-white, 10%),
+  500: $unam-white, // Tu color base, usado como 'default'
+  600: darken($unam-white, 5%),
+  700: darken($unam-white, 10%),
+  800: darken($unam-white, 15%),
+  900: darken($unam-white, 20%),
+  A100: lighten($unam-white, 40%),
+  A200: lighten($unam-white, 10%),
+  A400: $unam-white,
+  A700: darken($unam-white, 10%),
+  contrast: ( // Colores de texto para cada tonalidad
+    50: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    100: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    200: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    300: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    400: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    500: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    600: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    700: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    800: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    900: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    A100: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    A200: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    A400: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    A700: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+  )
+)); // <--- Cierre del mapa de la paleta
+
+
+$unam-accent-palette: mat.define-palette(( // <--- Solo un par de paréntesis aquí
+  50: lighten($unam-blue, 45%),
+  100: lighten($unam-blue, 40%),
+  200: lighten($unam-blue, 30%),
+  300: lighten($unam-blue, 20%),
+  400: lighten($unam-blue, 10%),
+  500: $unam-blue, // Tu color base
+  600: darken($unam-blue, 5%),
+  700: darken($unam-blue, 10%),
+  800: darken($unam-blue, 15%),
+  900: darken($unam-blue, 20%),
+  A100: lighten($unam-blue, 40%),
+  A200: lighten($unam-blue, 10%),
+  A400: $unam-blue,
+  A700: darken($unam-blue, 10%),
+  contrast: (
+    50: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    100: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    200: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    300: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    400: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    500: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    600: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    700: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    800: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    900: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+    A100: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    A200: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    A400: mat.get-contrast-color-from-palette(mat.$gray-palette, 900),
+    A700: mat.get-contrast-color-from-palette(mat.$gray-palette, 50),
+  )
+)); // <--- Cierre del mapa de la paleta
+
+$unam-warn-palette: mat.define-palette(
+  (
+    50: lighten($unam-gold, 45%), // Tono muy claro
+    100: lighten($unam-gold, 35%),
+    200: lighten($unam-gold, 20%),
+    300: lighten($unam-gold, 10%),
+    400: lighten($unam-gold, 5%),
+    500: $unam-gold, // Tu color base
+    600: darken($unam-gold, 5%),
+    700: darken($unam-gold, 10%),
+    800: darken($unam-gold, 15%),
+    900: darken($unam-gold, 20%),
+    A100: lighten($unam-gold, 35%),
+    A200: lighten($unam-gold, 20%),
+    A400: $unam-gold,
+    A700: darken($unam-gold, 10%),
+    contrast: ( // Colores de texto para cada tono de la paleta
+      50: mat.get-contrast-color-from-palette(mat.$grey-palette, 800), // Texto oscuro para fondo claro
+      100: mat.get-contrast-color-from-palette(mat.$grey-palette, 800),
+      200: mat.get-contrast-color-from-palette(mat.$grey-palette, 900),
+      300: mat.get-contrast-color-from-palette(mat.$grey-palette, 900),
+      400: white, // O mat.get-contrast-color-from-palette(mat.$grey-palette, 50) si es claro
+      500: white, // Texto blanco para tu color base si es oscuro, o negro si es claro
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+      A100: mat.get-contrast-color-from-palette(mat.$grey-palette, 800),
+      A200: mat.get-contrast-color-from-palette(mat.$grey-palette, 900),
+      A400: white,
+      A700: white,
+    )
+  ),
+  500, // Tono por defecto
+  300, // Tono más claro por defecto
+  700  // Tono más oscuro por defecto
+);
+
+// 4. Define tu tema.
+$unam-theme: mat.define-light-theme((
+  color: ( // <--- Aquí sí va la clave 'color' para agrupar las paletas del tema
+    primary: $unam-primary-palette,
+    accent: $unam-accent-palette,
+    warn: $unam-warn-palette,
+  ),
+  typography: $unam-typography,
+));
+
+

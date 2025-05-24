@@ -1,0 +1,74 @@
+div {
+    z-index: -1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 550px;
+}
+
+.hero-section {
+  background-image: url('https://cincoradio.com.mx/wp-content/uploads/2024/01/aniversario_portada.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -2; /* Adjusted z-index to ensure it's behind the text but above the div if it had content */
+}
+
+.hero-section h1 {
+  font-size: 5rem; /* Default for larger screens */
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color:var(--hero-title);
+}
+
+.hero-section p {
+  font-size: 2.7rem; /* Default for larger screens */
+  margin-bottom: 2rem;
+}
+
+/* Responsive adjustments for typography */
+
+/* For tablets and smaller desktops */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 3.5rem; /* Smaller font size for tablets */
+  }
+
+  .hero-section p {
+    font-size: 2rem; /* Smaller font size for tablets */
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.5rem; /* Even smaller font size for mobile */
+  }
+
+  .hero-section p {
+    font-size: 1.5rem; /* Even smaller font size for mobile */
+  }
+
+  .hero-section {
+    height: 70vh; /* Optionally adjust height for smaller screens */
+  }
+}
+
+/* There was an extra closing bracket in your original CSS, I've removed it. */

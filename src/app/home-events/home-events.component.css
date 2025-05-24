@@ -1,0 +1,184 @@
+.main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the whole carousel block */
+  padding: 20px 0; /* Add some vertical padding */
+  width: 100%;
+  background-color: var(--background-color);
+  padding-bottom: 50px;
+
+}
+
+.section-title {
+  width: 90%;
+  /* MODIFICATION: Increased max-width for desktop */
+  max-width: 1200px; /* Was 1000px, adjust this value as needed */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-title h2 {
+  font-size: 2rem; /* Adjust as needed */
+  color: var(--text-color); /* Example color */
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* MODIFICATION: Increased max-width for desktop */
+  max-width: 1200px; /* Was 1000px, adjust this value to control card width */
+  position: relative;
+}
+
+.carousel-arrow {
+  background-color: var(--card-background); /* Light background for visibility */
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Fixed size */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0 8px; /* Reduced margin */
+  color: var(--text-color);
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.carousel-arrow mat-icon {
+  font-size: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.events-viewport {
+  overflow: hidden;
+  flex-grow: 1; /* Allow viewport to take available space between arrows */
+}
+
+.events-div {
+  display: flex;
+  flex-direction: row;
+  /* gap: 15px; */ /* Adjust gap as desired. This will be used in card calculations. */
+  padding: 5px 0; /* Small padding for visual separation if needed */
+  transition: transform 0.3s ease-in-out; /* For potential future sliding animations */
+  align-items: stretch; /* Makes cards in a row take the same height */
+  
+}
+
+
+
+mat-card a { /* Style for the link wrapping the card content */
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make anchor fill the card for clickability */
+  
+}
+
+mat-card-header {
+  padding-bottom: 8px; /* Adjust spacing */
+}
+
+mat-card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show 2 lines before ellipsis */
+  -webkit-box-orient: vertical;
+  font-size: 1.1rem; /* Adjust font size */
+  line-height: 1.4;
+  min-height: 2.8rem; /* Space for 2 lines (2 * 1.4rem) */
+}
+
+mat-card-subtitle {
+  font-size: 0.9rem;
+  min-height: 1.2em; /* Ensure space even if empty, or remove if not desired */
+  color: var(--card-contentFont);
+}
+
+.example-card button{
+  color: var(--card-contentFont);
+}
+
+mat-card-actions {
+  margin-top: auto; /* Pushes actions to the bottom of the card */
+  padding-top: 8px;
+}
+
+.example-card {
+  box-sizing: border-box;
+  display: flex; /* To help with internal alignment if needed */
+  flex-direction: column; /* Ensure content flows top to bottom */
+  background-color: var(--card-background);
+  color: var(--text-color);
+  /*
+    The flex-basis calculation will ensure cards and gaps fit the viewport.
+    Let G be the gap (e.g., 16px).
+    Let N be itemsPerPage from TS.
+    flex-basis = calc((100% - (N-1) * G) / N)
+  */
+  
+  /* Card specific margin will create space around cards.
+     If using .events-div { gap: ... }, then margin might not be needed or should be smaller.
+     Let's use gap on .events-div and calculate flex-basis accordingly.
+     Set gap on .events-div, e.g., gap: 16px;
+  */
+  margin: 0 8px; /* This creates 16px total space between cards if .events-div doesn't have gap */
+  min-height: 13rem; /* Keep a min-height, but allow growth */
+  /* flex: 0 0 auto; remove this, use flex-basis below */
+
+  /* Default for 4 cards (desktop) - assuming itemsPerPage = 4 */
+  flex-basis: calc((100% - (3 * 16px)) / 4); /* 16px total gap (8px margin on each side) */
+  min-width: calc((100% - (3 * 16px)) / 4);
+}
+
+/* Responsive adjustments for cards based on itemsPerPage from TS */
+/* These media queries will now primarily handle other visual tweaks if needed, */
+/* as itemsPerPage in TS and the flex-basis calculation are the main drivers. */
+/* However, we can use them to ensure the base calculation is correct per breakpoint view. */
+
+/* For 3 cards (Tablets and small desktops, itemsPerPage = 3) */
+@media (max-width: 991.98px) { /* Bootstrap's <992px breakpoint */
+  .example-card {
+    flex-basis: calc((100% - (2 * 16px)) / 3);
+    min-width: calc((100% - (2 * 16px)) / 3);
+  }
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* For 2 cards (Small tablets, itemsPerPage = 2) */
+@media (max-width: 767.98px) { /* Bootstrap's <768px breakpoint */
+  .events-viewport {
+    margin: 0; /* Remove extra margin if arrows are outside */
+  }
+  .example-card {
+    flex-basis: calc((100% - (1 * 16px)) / 2);
+    min-width: calc((100% - (1 * 16px)) / 2);
+  }
+  .section-title h2 {
+    font-size: 1.6rem;
+  }
+   
+}
+
+/* For 1 card (Mobile, itemsPerPage = 1) */
+@media (max-width: 479.98px) { /* <480px breakpoint */
+  .example-card {
+    flex-basis: 100%; /* Single card takes full width, no gap calculation needed with itself */
+    min-width: 100%;
+    margin: 0; /* No horizontal margin for single card view */
+  }
+   .section-title h2 {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
+/* Estilos Base (Mobile First) - Aplicados a todas las pantallas por defecto */
+footer.custom-site-footer {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente en móviles */
+  align-items: center; /* Centra los elementos horizontalmente */
+  text-align: center; /* Centra el texto dentro de los elementos hijos */
+  padding: 20px 16px; /* Buen padding para móviles */
+  min-height: auto; /* La altura se ajusta al contenido */
+  gap: 18px; /* Espacio entre el copyright y el bloque de la derecha */
+  box-sizing: border-box;
+  width: 100%;
+  position: static; /* O 'sticky' si prefieres que se quede fijo al hacer scroll */
+  bottom: 0;
+  font-family: 'Raleway', sans-serif; /* Fuente Raleway aplicada */
+  background-color: var(--footer-background); /* Color de fondo oscuro (ej. azul oscuro UNAM). Ajusta a tu color 'accent' exacto. */
+  color: var(--font-footer); /* Color de texto blanco para contraste */
+}
+
+.footer-copyright {
+  font-size: 0.875rem; /* 14px */
+  opacity: 0.9;
+  line-height: 1.4; /* Mejora legibilidad */
+  width: 100%; /* Ocupa el ancho para centrado correcto */
+}
+
+.footer-right-content {
+  display: flex;
+  flex-direction: column; /* También apilado en móviles */
+  align-items: center;
+  gap: 18px; /* Espacio entre el bloque social y el bloque legal */
+  width: 100%;
+}
+
+.footer-contact-social {
+  display: flex;
+  justify-content: center; /* Centra los iconos */
+  align-items: center;
+  gap: 12px; /* Espacio entre iconos */
+}
+
+/* Estilos para los mat-icon-button y mat-icon.
+   Angular Material debería manejar el color del icono si está dentro de un <a>
+   con mat-icon-button. Si no, puedes forzarlo: */
+.footer-contact-social a mat-icon {
+  color: #FFFFFF; /* Asegura que los iconos sean blancos */
+}
+.footer-contact-social a {
+ color: var(--font-footer); /* Asegura que el contenedor del icono no altere el color si es un enlace */
+}
+
+
+.footer-legal-links {
+  display: flex;
+  flex-direction: column; /* Links legales apilados en móvil */
+  align-items: center;
+  gap: 10px; /* Espacio entre links legales */
+}
+
+.footer-legal-links a {
+  text-decoration: none;
+  font-size: 0.875rem; /* 14px */
+  color: var(--font-footer); /* Asegura que los links sean blancos */
+  padding: 6px 8px; /* Área táctil para los enlaces */
+  font-weight: 500;
+}
+
+.footer-legal-links a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+
+/* --- Media Query para Tablets y Desktops --- */
+/* Se aplica a partir de 768px de ancho de pantalla */
+@media (min-width: 768px) {
+  footer.custom-site-footer {
+    flex-direction: row; /* Elementos en fila */
+    justify-content: space-between; /* Copyright a la izq, right-content a la der */
+    align-items: center; /* Alinea verticalmente los items */
+    padding: 0 24px; /* Padding horizontal para desktop */
+    min-height: 64px; /* Altura deseada para desktop, ej: 64px. Ajusta según necesidad. */
+    text-align: left; /* El texto del copyright se alinea a la izquierda */
+    gap: 20px; /* Espacio entre copyright y el bloque derecho si están cerca */
+  }
+
+  .footer-copyright {
+    width: auto; /* El ancho se ajusta al contenido */
+  }
+
+  .footer-right-content {
+    flex-direction: row; /* Elementos de la derecha en fila */
+    align-items: center;
+    gap: 24px; /* Espacio entre el bloque social y el bloque legal */
+    width: auto; /* El ancho se ajusta al contenido */
+  }
+
+ 
+  .footer-legal-links {
+    flex-direction: row; /* Links legales en fila */
+    gap: 16px; /* Espacio entre links legales */
+  }
+
+  .footer-legal-links a {
+    padding: 8px 12px; /* Padding ligeramente mayor para desktop */
+  }
+}
+
+

@@ -1,0 +1,24 @@
+<div class="title-container">
+    <a [routerLink]="['/']">Inicio</a> <span class="span-arrow">></span> <a>Oferta Académica</a> <span class="span-arrow">></span> <a [routerLink]="['/licenciaturas']">Licenciaturas</a> <span class="span-arrow">></span> <a>{{carrera}}</a>
+    <p>{{area}}</p>
+    <h2>{{carrera}}</h2>
+    <mat-divider></mat-divider>
+</div>
+<div class="main-container">
+    <div class="descripcion-container">
+        <h3>Descripción</h3>
+        <p>{{descripcion}}</p>
+        <h3>Plan de Estudios</h3>
+        <p>Consulta o descarga el plan de estudios oficial.</p>
+        <button mat-raised-button><mat-icon>download</mat-icon>Descargar Plan (PDF)</button>
+    </div>
+    <div class="enlaces-container">
+        <h4>Información Clave</h4>
+        <mat-divider></mat-divider>
+        <p>Sedes: {{sedes}}</p>
+        <h4>Enlaces de Interés</h4>
+        <mat-divider></mat-divider>
+        <a href="{{url}}" class="a-link"><mat-icon>link</mat-icon>Sitio Web Facultad/Escuela</a>
+    </div>
+</div>
+<div class="filler-container"></div>

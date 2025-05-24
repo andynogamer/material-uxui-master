@@ -1,0 +1,35 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="over"> <div class="container">
+        <button mat-button class="main-buttons" [routerLink]="['/']" (click)="drawer.close()"> INICIO
+        </button>
+
+
+        <button
+        mat-button
+        [matMenuTriggerFor]="belowMenu"
+        (menuOpened)="onMenuOpened()"
+        (menuClosed)="onMenuClosed()"
+
+        class="main-buttons">COMUNIDAD<mat-icon [@rotate]="currentState[0]"
+        >arrow_forward_ios</mat-icon>
+
+        </button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button class="secondary-button" mat-menu-item [routerLink]="['/alumnos']" (click)="drawer.close()">Alumnos</button> <button mat-menu-item [routerLink]="['/academicos']" (click)="drawer.close()">Académicos</button> </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="beyondMenu"
+        (menuOpened)="onMenuOpened1()"
+        (menuClosed)="onMenuClosed1()"
+        class="main-buttons">OFERTA EDUCATIVA<mat-icon [@rotate]="currentState[1]">arrow_forward_ios</mat-icon></button>
+        <mat-menu #beyondMenu="matMenu" yPosition="below">
+        <button mat-menu-item (click)="drawer.close()">Facultades y escuelas</button> <button mat-menu-item (click)="drawer.close()">Licenciaturas</button> </mat-menu>
+        <button mat-button (click)="drawer.close()" class="main-buttons">NUMERALIA</button> </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer> 
+    </div>
+
+</mat-drawer-container>

@@ -1,0 +1,30 @@
+<div class="main-div">
+  <div class="section-title">
+    <h2>Próximos Eventos</h2>
+  </div>
+
+  <div class="carousel-container">
+    <button aria-label="leftArrow" mat-icon-button class="carousel-arrow prev" (click)="previousCard()" [disabled]="!canGoPrevious">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <div class="events-viewport">
+      <div class="events-div">
+        <mat-card class="example-card" *ngFor="let event of displayedEvents">
+          <a href="#"> <mat-card-header>
+              <mat-card-title>{{event.titulo}}</mat-card-title>
+              <mat-card-subtitle *ngIf="event.hora">{{event.hora}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+              <button mat-button>{{event.dia}} {{event.mes}}</button>
+            </mat-card-actions>
+          </a>
+        </mat-card>
+      </div>
+    </div>
+
+    <button aria-label="rightArrow" mat-icon-button class="carousel-arrow next" (click)="nextCard()" [disabled]="!canGoNext">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>

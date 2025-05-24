@@ -1,0 +1,39 @@
+.a-link{
+    text-decoration: none;
+    color:black;
+    
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    
+}
+.title-container{
+    padding-top: 30px;
+}
+.title-container a{
+    font-size: 14px;
+}
+.main-container, .title-container  {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.descripcion-container{
+    padding-right: 10vw
+}
+.descripcion-container p{
+    padding-top:10px;
+    padding-bottom: 20px;
+}
+
+
+.span-arrow{
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.filler-container{
+    height:400px;
+}

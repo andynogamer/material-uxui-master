@@ -1,0 +1,30 @@
+<div class="title-container">
+    <h2>Licenciaturas</h2>
+    <mat-divider></mat-divider>
+    <mat-button-toggle-group name="areaFilter" aria-label="Filtrar por Área" (valueChange)="filtrarPorArea($event)">
+        <mat-button-toggle value="todas">Todas las Áreas</mat-button-toggle>
+        <mat-button-toggle value="Área I:">Área I</mat-button-toggle>
+        <mat-button-toggle value="Área II:">Área II</mat-button-toggle>
+        <mat-button-toggle value="Área III:">Área III</mat-button-toggle>
+        <mat-button-toggle value="Área IV:">Área IV</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+
+<div class="card-grid">
+    
+    <div class="card" *ngFor="let licenciatura of licenciaturasFiltradas" tabindex="0" role="link" >
+        <div [routerLink]="[licenciatura.id]" >
+            
+        <h4>{{licenciatura.area}}</h4>
+        <h3>{{licenciatura.carrera}}</h3>
+        <p>{{licenciatura.seImparte}}</p>
+        </div>
+        </div>
+    
+</div>
+
+<div *ngIf="licenciaturasFiltradas.length === 0" class="no-results-container">
+    <p>No se encontraron licenciaturas para el área seleccionada.</p>
+</div>
+
+<div class="space-container"></div>

@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+    <button class="search-icon"(click)="triggerSidebarToggle()" aria-label="menu" aria-hidden="true"><mat-icon *ngIf="isMobile"
+        >menu</mat-icon></button>
+    <span>
+        <img alt="UNAM_logo" src= "https://placehold.co/150x50/FFFFFF/000000?text=UNAM"/>
+    </span>
+
+    <span class="spacer"></span>
+
+
+    <div class="container-buttons-right" *ngIf="!isMobile">
+        
+        <button mat-button [routerLink]="['/']">INICIO</button>
+    
+    
+        <button 
+        mat-button 
+        [matMenuTriggerFor]="belowMenu"
+        (menuOpened)="onMenuOpened()"
+        (menuClosed)="onMenuClosed()" 
+        
+        >COMUNIDAD<mat-icon [@rotate]="currentState[0]"
+        >arrow_forward_ios</mat-icon>
+
+        </button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+        <button mat-menu-item [routerLink]="['/alumnos']">Alumnos</button>
+        <button mat-menu-item [routerLink]="['/academicos']">Académicos</button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="beyondMenu"
+        (menuOpened)="onMenuOpened1()"
+        (menuClosed)="onMenuClosed1()"
+        >OFERTA EDUCATIVA<mat-icon [@rotate]="currentState[1]">arrow_forward_ios</mat-icon></button>
+        <mat-menu #beyondMenu="matMenu" yPosition="below">
+        <button mat-menu-item [routerLink]="['/facultades']">Facultades y escuelas</button>
+        <button mat-menu-item [routerLink]="['/licenciaturas']">Licenciaturas</button>
+        </mat-menu>
+        <button mat-button role="link" (click)="handleBtnAction()">NUMERALIA</button>
+        
+        <app-theme-toggle></app-theme-toggle>
+    </div>
+
+
+    
+    
+</mat-toolbar>

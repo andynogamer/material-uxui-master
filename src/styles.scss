@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+@import 'unam-theme';
+
+@include mat.all-component-themes($unam-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.lightMode{
+    background-color: #f5f5f5;
+    color: #000
+
+}
+
+.darkMode{
+    background-color: #082a52;
+    color: #fff
+}
+
+/* styles.css o styles.scss */
+
+:root {
+  --background-color: #ffffff; /* Blanco para el fondo en modo claro */
+  --text-color: #333333;       /* Gris oscuro para el texto en modo claro */
+  --primary-color: #007bff;   /* Azul para elementos primarios */
+  --card-background: #f8f9fa; /* Gris claro para tarjetas */
+  --hero-title: #ffffff;
+  --events-background: #f0f0f0;
+  --footer-background: #003366;
+  --font-footer:#ffffff;
+  --card-contentFont: #555;
+  --card-titleFont: #212529;
+  --border-animation: #ffd700;
+  
+}
+
+body.dark-theme {
+  --background-color: #0f2947; /* Gris muy oscuro para el fondo en modo oscuro */
+  --text-color: #a38521;       /* Gris claro para el texto en modo oscuro */
+  --primary-color: #a38521;   /* Un color brillante para primario en modo oscuro */
+  --card-background: #0b1e33; /* Gris oscuro para tarjetas */
+--hero-title: #ffffff;
+ --events-background: #202020;
+ --footer-background: rgb(0, 30, 59);
+  --font-footer:#a38521;
+  --card-contentFont: #FFFFFF;
+  --card-titleFont: #a38521;
+  --border-animation: #a38521;
+}
+
+/* Estilos globales que usan las variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+h1, h2, h3 {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+/* Ejemplo de cómo usarías las variables en tus componentes */
+/* .mi-componente-card {
+  background-color: var(--card-background);
+  padding: 1rem;
+  border-radius: 8px;
+} */

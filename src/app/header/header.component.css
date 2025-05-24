@@ -1,0 +1,49 @@
+.spacer {
+  flex: 1 1 auto; /* Esto hace que el span ocupe todo el espacio flexible disponible */
+}
+.container-buttons-right {
+  display: flex; 
+  align-items: center; 
+  margin-right: 5vw; 
+  
+  
+}
+.search-icon{
+  font-size: 23px; 
+  margin-left: 1.5vw ;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease-in-out, font-size 0.2s ease-in-out;
+   &:hover {
+    
+    transform: scale(1.2);
+
+  }
+  
+}
+
+button[mat-button] {
+    margin-left: 2vw; 
+}
+
+mat-toolbar span img {
+  vertical-align: middle;
+  margin-left: 5vw
+  
+}
+
+mat-toolbar{
+  position: sticky; /* Hace que el elemento sea "pegajoso" */
+  top: 0;  
+  z-index: 1000; /* Asegura que el toolbar esté por encima de otros elementos */
+  /* Aquí agregamos la sombra */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+button{
+  color: var(--text-color);
+   background-color: var(--background-color);
+}

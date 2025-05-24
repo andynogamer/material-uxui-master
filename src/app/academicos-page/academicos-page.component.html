@@ -1,0 +1,13 @@
+<div class="title-container">
+    <h2>Portal Académicos</h2>
+    <mat-divider></mat-divider>
+    <h3>Accesos Rápidos</h3>
+</div>
+<div class="card-grid" >
+
+    <div class="card" *ngFor="let service of services " tabindex="0" role="link"  (click)="handleCardAction(service)">
+      <mat-icon class="icon">{{service.icon}}</mat-icon>
+      <h3>{{service.titulo}}</h3>
+    </div>
+</div>
+<div class="space-container"></div>
